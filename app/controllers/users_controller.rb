@@ -10,4 +10,22 @@ class UsersController < Clearance::UsersController
       render :new
     end
   end
+
+  private
+
+    def user_params
+      return Hash.new unless params[:user]
+      params.require(:user).permit(
+        :email,
+        :password,
+        :first_name,
+        :last_name,
+        :street_number,
+        :street_name,
+        :zip_code,
+        :city,
+        :situation,
+        :pdl
+      )
+    end
 end
