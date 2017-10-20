@@ -40,6 +40,7 @@ gem 'aasm', '~> 4.12', '>= 4.12.2'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Rubocop is a Ruby code style checking tool
