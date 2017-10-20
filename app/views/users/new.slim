@@ -21,12 +21,4 @@ div id='marketing'
       = f.input :email, placeholder: 'Email'
       = f.input :password, placeholder: 'Password'
 
-      hr
-      h4 class='mt-3' Situation
-      = f.input :situation, collection: ['I move in', 'I built a new flat/house', 'I need a temporary access'], as: :radio_buttons, label: false
-
-      hr
-      h4 class='mt-3' Technical informations
-      = f.input :pdl, placeholder: 'pdl'
-
-      = f.button :submit, class: 'btn btn-outiline-success btn-lg'
+      = f.button :submit, 'go to next step', class: 'btn btn-outiline-success btn-lg'
