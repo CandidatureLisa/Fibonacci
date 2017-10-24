@@ -21,5 +21,9 @@ class User < ApplicationRecord
     event :fill_technical_informations do
       transitions from: :step, to: :end
     end
+
+    event :back_to_general_informations do
+      transitions from: :step, to: :start
+    end
   end
 end

@@ -9,4 +9,5 @@ div id='marketing'
       h4 class='mt-3' Technical informations
       = f.input :pdl, placeholder: 'pdl'
 
-      = f.button :submit, 'submit', class: 'btn btn-outiline-success btn-lg'
+      = link_to 'go back', edit_user_path, class: 'btn'
+      = f.button :submit, 'submit', class: 'btn btn-outline-success btn-lg'

@@ -1,5 +1,5 @@
 class UsersController < Clearance::UsersController
-  before_action :set_user, only: [:step_sign_up, :update]
+  before_action :set_user, only: [:step_sign_up, :edit, :update]
 
   def create
     @user = user_from_params
@@ -15,15 +15,30 @@ class UsersController < Clearance::UsersController
   def step_sign_up
   end
 
+  def edit
+    @user.back_to_general_informations
+    @user.save
+  end
+
   def update
-    @user.fill_technical_informations
+    if @user.aasm_state == 'step'
+      @user.fill_technical_informations
 
-    if @user.update(user_params)
-      sign_in @user
+      if @user.update(user_params)
+        sign_in @user
+        redirect_back_or url_after_create
+      else
+        render :step_sign_up
+      end
 
-      redirect_back_or url_after_create
-    else
-      render :step_sign_up
+    elsif @user.aasm_state == 'start'
+      @user.fill_general_informations
+
+      if @user.update(user_params)
+        redirect_to step_sign_up_user_path(@user)
+      else
+        render :edit
+      end
     end
   end
 
