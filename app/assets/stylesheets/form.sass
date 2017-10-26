@@ -1,0 +1,40 @@
+.radio > label
+  display: block
+
+input.radio_buttons
+  margin-right: 0.5em
+
+.btn
+  &-white
+    background: white
+    color: black
+  &.active
+    background: black
+    color: white
+  &-circle
+    width: 30px
+    height: 30px
+    text-align: center
+    padding: 6px 0
+    font-size: 12px
+    line-height: 1.428571429
+    border-radius: 15px
+
+.steps
+  display: flex
+  flex-direction: row
+  justify-content: center
+  &:before
+    top: 30px
+    bottom: 0
+    position: absolute
+    content: " "
+    width: 30%
+    height: 1px
+    background-color: #ccc
+    z-index: 0
+
+.step
+  margin: 0 2em
+  z-index: 1
+  font-size: 0.8rem

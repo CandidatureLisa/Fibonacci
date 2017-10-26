@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   end
 
   controller :users do
-    resources :users, only: [:create] do
+    resources :users, only: [:create, :edit, :update] do
+      member do
+        get 'step_sign_up', to: 'users#step_sign_up'
+      end
       resource :password, only: [:create, :edit, :update]
     end
     get '/sign_up' => :new, as: :sign_up
